@@ -1,0 +1,8 @@
+README                           The main README file
+MANIFEST                         This list
+ChangeLog                        List of changes
+Makefile.PL                      Generic Makefile template
+Logger.pm                        Application logging interface
+patchlevel.h                     Records the current patchlevel
+t/basic.t                        Basic logging tests
+t/code.pl                        Library for tests
