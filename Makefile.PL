@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 0.1 2000/11/06 20:14:13 ram Exp $
+# $Id: Makefile.PL,v 0.1.1.1 2001/04/11 16:14:30 ram Exp $
 #
 #  Copyright (c) 2000, Raphael Manfredi
 #  
@@ -7,6 +7,10 @@
 #
 # HISTORY
 # $Log: Makefile.PL,v $
+# Revision 0.1.1.1  2001/04/11 16:14:30  ram
+# patch1: now depends on Getargs::Long
+# patch1: must use Log::Agent 0.208 or better
+#
 # Revision 0.1  2000/11/06 20:14:13  ram
 # Baseline for first Alpha release.
 #
@@ -20,7 +24,8 @@ WriteMakefile(
     'NAME'	=> 'Log::Agent::Logger',
     'VERSION_FROM' => 'Logger.pm', # finds $VERSION
 	'PREREQ_PM' => {
-		'Log::Agent'       => '0.200',
+		'Getargs::Long'    => '0.103',
+		'Log::Agent'       => '0.208',
 	},
 	'PM' => build_pm_hash(),
     'LIBS'	=> [''],		# e.g., '-lm' 

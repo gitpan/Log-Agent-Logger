@@ -1,7 +1,7 @@
 #!./perl
 
 #
-# $Id: basic.t,v 0.1 2000/11/06 20:14:13 ram Exp $
+# $Id: basic.t,v 0.1.1.1 2001/04/11 16:15:27 ram Exp $
 #
 #  Copyright (c) 2000, Raphael Manfredi
 #  
@@ -10,6 +10,9 @@
 #
 # HISTORY
 # $Log: basic.t,v $
+# Revision 0.1.1.1  2001/04/11 16:15:27  ram
+# patch1: now tests proper sprintf semantics in log arguments
+#
 # Revision 0.1  2000/11/06 20:14:13  ram
 # Baseline for first Alpha release.
 #
@@ -43,7 +46,7 @@ my $log = Log::Agent::Logger->make(
 	-max_prio	=> 'info',
 );
 
-$log->info("this is an informational message");
+$log->info("this is an %s message", "informational");
 $log->debug("this message (debug) will NOT show");
 $log->emerg("emergency message");
 $log->warn("warning message");

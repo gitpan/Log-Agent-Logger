@@ -1,3 +1,27 @@
+Wed Apr 11 18:19:42 MEST 2001   Raphael Manfredi <Raphael_Manfredi@pobox.com>
+
+. Description:
+
+	Now relies on Getargs::Long for argument parsing.
+
+	New -caller argument to customize caller tracing, with the
+	ability to dynamically change settings via set_caller_info().
+
+	New -priority argument to customize priority tracing, with
+	the ability to dynamically change settings via set_priority_info().
+
+	New -tags argument to add user-defined tags in the logs.
+
+	Must use Log::Agent 0.208 or better, since we rely on a specific
+	feature for priority tracing.
+
+	Now tests proper sprintf semantics in log arguments, i.e. that
+	something like
+
+		$log->error("this is message #%d", 5)
+
+	works as advertised.
+
 Fri Nov  3 10:28:17 MET 2000 Raphael Manfredi <Raphael_Manfredi@pobox.com>
 
 . Description

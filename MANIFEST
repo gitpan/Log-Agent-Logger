@@ -5,4 +5,7 @@ Makefile.PL                      Generic Makefile template
 Logger.pm                        Application logging interface
 patchlevel.h                     Records the current patchlevel
 t/basic.t                        Basic logging tests
+t/caller.t                       Test caller information
 t/code.pl                        Library for tests
+t/priority.t                     Test -priority settings
+t/tags.t                         Test log message tags
