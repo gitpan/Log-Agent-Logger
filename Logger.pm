@@ -28,7 +28,7 @@ package Log::Agent::Logger;
 
 use vars qw($VERSION);
 
-$VERSION = '0.101';
+$VERSION = '0.2';
 
 use Log::Agent;
 use Log::Agent::Formatting qw(tag_format_args);
@@ -578,6 +578,8 @@ for the operations that can be performed on that object.
 =head1 AUTHOR
 
 Raphael Manfredi F<E<lt>Raphael_Manfredi@pobox.comE<gt>>
+
+Test suite updated for Cygwin by Terrence Brannon, E<lt>tbone@cpan.org<gt>
 
 =head1 SEE ALSO
 

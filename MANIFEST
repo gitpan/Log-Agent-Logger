@@ -9,3 +9,4 @@ t/caller.t                       Test caller information
 t/code.pl                        Library for tests
 t/priority.t                     Test -priority settings
 t/tags.t                         Test log message tags
+META.yml                                Module meta-data (added by MakeMaker)

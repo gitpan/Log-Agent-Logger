@@ -27,8 +27,11 @@ print "1..2\n";
 require 't/code.pl';
 sub ok;
 
+
+$logfile = 'logfile-tags.t';
+
 sub cleanlog() {
-	unlink <t/logfile*>;
+	unlink <$logfile>;
 }
 
 require Log::Agent::Channel::File;
@@ -36,12 +39,12 @@ require Log::Agent::Logger;
 require Log::Agent::Tag::String;
 
 cleanlog;
-my $file = "t/logfile";
+
 my $channel = Log::Agent::Channel::File->make(
 	-prefix     => "foo",
 	-stampfmt   => "own",
 	-showpid    => 1,
-    -filename   => $file,
+    -filename   => $logfile,
     -share      => 1,
 );
 
@@ -58,8 +61,8 @@ $log->err("error string");
 $log->tags->append($t2);
 $log->warn("warn string");
 
-ok 1, contains($file, '<tag #1> error string$');
-ok 2, contains($file, '<tag #1> warn string <tag #2>$');
+ok 1, contains($logfile, '<tag #1> error string');
+ok 2, contains($logfile, '<tag #1> warn string <tag #2>');
 
-cleanlog;
+#cleanlog;
 

@@ -27,20 +27,22 @@ print "1..5\n";
 require 't/code.pl';
 sub ok;
 
+my $logfile = "logfile-caller.t";
+
 sub cleanlog() {
-	unlink <t/logfile*>;
+	unlink <$logfile>;
 }
 
 require Log::Agent::Channel::File;
 require Log::Agent::Logger;
 
 cleanlog;
-my $file = "t/logfile";
+
 my $channel = Log::Agent::Channel::File->make(
 	-prefix     => "foo",
 	-stampfmt   => "own",
 	-showpid    => 1,
-    -filename   => $file,
+    -filename   => $logfile,
     -share      => 1,
 );
 
@@ -76,11 +78,11 @@ $log->close;
 my $error_str = sprintf("%.4d", $show_error);
 my $notice_str = sprintf("%.4d", $show_notice);
 
-ok 1, contains($file, "error string <main::show_error,$error_str>");
-ok 2, contains($file, "notice string <main::show_notice,$notice_str>");
-ok 3, contains($file, '<nothing> error2 string$');
-ok 4, contains($file, 'error3 string$');
-ok 5, !contains($file, '> error3 string$');
+ok 1, contains($logfile, "error string <main::show_error,$error_str>");
+ok 2, contains($logfile, "notice string <main::show_notice,$notice_str>");
+ok 3, contains($logfile, '<nothing> error2 string');
+ok 4, contains($logfile, 'error3 string');
+ok 5, !contains($logfile, '> error3 string$');
 
-cleanlog;
+#cleanlog;
 
